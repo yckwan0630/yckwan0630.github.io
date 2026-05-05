@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>金時金日｜開發者網站</title>
+    <meta name="description" content="金時金日：以八字角度管理財運節奏的月曆與時辰分析工具。提供人物檔案、財日月曆、時辰分析、提醒與記錄。" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0b0f14;
+        --card: rgba(255,255,255,0.06);
+        --text: rgba(255,255,255,0.92);
+        --muted: rgba(255,255,255,0.70);
+        --line: rgba(255,255,255,0.12);
+        --brand: #f5c542;
+        --accent: #6aa6ff;
+        --max: 980px;
+        --radius: 16px;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f7f8fa;
+          --card: #ffffff;
+          --text: rgba(0,0,0,0.88);
+          --muted: rgba(0,0,0,0.62);
+          --line: rgba(0,0,0,0.10);
+          --brand: #c58b00;
+          --accent: #1d4ed8;
+        }
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, "PingFang TC", "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
+        background: radial-gradient(1200px 800px at 20% -10%, rgba(245,197,66,0.25), transparent 60%),
+                    radial-gradient(1200px 800px at 100% 10%, rgba(106,166,255,0.20), transparent 55%),
+                    var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .wrap { max-width: var(--max); margin: 0 auto; padding: 28px 18px 56px; }
+      .nav {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid var(--line);
+        background: rgba(0,0,0,0.10);
+        backdrop-filter: blur(10px);
+        border-radius: var(--radius);
+        padding: 12px 14px;
+      }
+      @media (prefers-color-scheme: light) {
+        .nav { background: rgba(255,255,255,0.65); }
+      }
+      .nav-left { display: flex; gap: 10px; align-items: center; }
+      .logo {
+        width: 34px; height: 34px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, rgba(245,197,66,0.95), rgba(106,166,255,0.85));
+        display: grid; place-items: center;
+        color: rgba(0,0,0,0.72);
+        font-weight: 800;
+        letter-spacing: 0.5px;
+      }
+      .brand { font-weight: 800; }
+      .nav-links { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+      .hero {
+        margin-top: 20px;
+        padding: 28px 18px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--card);
+      }
+      .hero h1 { margin: 0 0 6px; font-size: 28px; line-height: 1.2; }
+      .hero p { margin: 10px 0 0; color: var(--muted); }
+      .grid { margin-top: 16px; display: grid; grid-template-columns: 1fr; gap: 14px; }
+      @media (min-width: 820px) { .grid { grid-template-columns: 1fr 1fr; } }
+      .card {
+        border: 1px solid var(--line);
+        background: var(--card);
+        border-radius: var(--radius);
+        padding: 16px 16px;
+      }
+      .card h2 { margin: 0 0 10px; font-size: 18px; }
+      .card ul { margin: 0; padding-left: 18px; color: var(--muted); }
+      .pill {
+        display: inline-flex; align-items: center; gap: 8px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 8px 12px;
+        background: rgba(0,0,0,0.08);
+      }
+      @media (prefers-color-scheme: light) {
+        .pill { background: rgba(255,255,255,0.65); }
+      }
+      .footer {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 14px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .small { font-size: 14px; color: var(--muted); }
+      .cta-row { margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        border-radius: 12px;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        background: rgba(106,166,255,0.16);
+        color: var(--text);
+        font-weight: 700;
+      }
+      .btn.secondary { background: rgba(245,197,66,0.14); }
+      .btn:hover { text-decoration: none; filter: brightness(1.03); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="nav">
+        <div class="nav-left">
+          <div class="logo" aria-hidden="true">金</div>
+          <div>
+            <div class="brand">金時金日</div>
+            <div class="small">開發者網站</div>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="./index.html">首頁</a>
+          <a href="./support.html">支援</a>
+          <a href="./privacy.html">隱私權</a>
+        </div>
+      </div>
+      
+      <section class="hero">
+        <h1>金時金日</h1>
+        <div class="pill">
+          <span>八字財曆</span>
+          <span aria-hidden="true">•</span>
+          <span>時辰分析</span>
+          <span aria-hidden="true">•</span>
+          <span>財運提醒</span>
+        </div>
+        <p>以八字角度，協助你在月曆中快速掌握財日節奏，並透過時辰分析、人物檔案與記錄功能，建立自己的財運管理習慣。</p>
+        <div class="cta-row">
+          <a class="btn" href="./support.html">聯絡支援</a>
+          <a class="btn secondary" href="./privacy.html">查看隱私權政策</a>
+        </div>
+      </section>
+      
+      <div class="grid">
+        <section class="card">
+          <h2>主要功能</h2>
+          <ul>
+            <li>人物檔案：建立多人檔案，切換不同人物的月曆與分析。</li>
+            <li>財日月曆：以「正／偏／財」與分數視覺化呈現，快速找出財運高點。</li>
+            <li>時辰分析：查看一天 12 時辰的得分與原因，支援逐行展開。</li>
+            <li>提醒與通知：可在指定時辰加入提醒（本地通知）。</li>
+            <li>個人記錄：新增個人紀錄與得分，方便回顧與對照。</li>
+          </ul>
+        </section>
+        
+        <section class="card">
+          <h2>訂閱與版本</h2>
+          <ul>
+            <li>免費版：提供基本月曆與分析體驗，部分功能有使用上限。</li>
+            <li>黃金版：解鎖完整功能與更完整的分析體驗。</li>
+            <li>購買與訂閱由 Apple App Store 處理，可在系統設定中管理與取消。</li>
+          </ul>
+        </section>
+        
+        <section class="card">
+          <h2>支援與回饋</h2>
+          <ul>
+            <li>支援信箱：<a href="mailto:goldtimegoldday@gmail.com">goldtimegoldday@gmail.com</a></li>
+            <li>建議回饋：請附上 iOS 版本、機型、問題截圖與重現步驟。</li>
+          </ul>
+        </section>
+        
+        <section class="card">
+          <h2>快速連結</h2>
+          <ul>
+            <li><a href="./support.html">支援頁（FAQ / 訂閱說明）</a></li>
+            <li><a href="./privacy.html">隱私權政策</a></li>
+            <li><a href="./app-ads.txt">app-ads.txt</a></li>
+          </ul>
+        </section>
+      </div>
+      
+      <div class="footer">
+        <div>© <span id="y"></span> 金時金日</div>
+        <div class="small">網站網址：yckwan0630.github.io</div>
+      </div>
+    </div>
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
